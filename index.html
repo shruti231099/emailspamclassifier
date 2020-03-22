@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	<title>Home</title>
+
+
+</head>
+<body class="bg-success">
+
+
+    <nav class="navbar">
+        <a class="navbar-brand text-light">Predictor</a>
+    </nav>
+
+	<div class="container">
+        <div class="row">
+            <div class="offset-4 col-md-50">
+                <div class="card mt_1000">
+                    <div class="card-body">
+                        <h3 class="text-md-center">Enter the details</h3><br>
+                        {% if label %}
+                            {% if label==1 %}
+                                <h3 style="color:green">Not Spam</h3>
+                            {% else %}
+                                <h3 style="color:red">Spam</h3>
+                            {% endif %}
+                        {% endif %}
+
+                        <form class="form" action="/predict" method="POST">
+		                    <p>Enter Your Message Here</p>
+                            <textarea name="message" rows="4" cols="50"></textarea><br>
+                            <input type="submit" class="btn-info" value="Predict">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
